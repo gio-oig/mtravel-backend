@@ -64,6 +64,6 @@ app.post("/citiesDistance", (req, res) => {
   return res.json({ distances, total });
 });
 
-app.listen(5000, () => {
+app.listen(process.env.PORT || 5000, () => {
   console.log("Listen on the port 5000...");
 });
