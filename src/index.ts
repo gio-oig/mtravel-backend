@@ -2,13 +2,17 @@ import express from "express";
 import morgan from "morgan";
 import cors from "cors";
 
-import { distance, findCityByName, getFilterCities } from "./data";
+import { cities, distance, findCityByName, getFilterCities } from "./data";
 
 const app = express();
 
 app.use(express.json());
 app.use(morgan("common"));
 app.use(cors());
+
+app.get("/", (req, res) => {
+  res.json({ cities });
+});
 
 app.get("/cities/:keyword", (req, res, next) => {
   const { keyword } = req.params;
